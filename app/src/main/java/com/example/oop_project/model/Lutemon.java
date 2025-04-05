@@ -1,6 +1,9 @@
 package com.example.oop_project.model;
 
-public class Lutemon {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Lutemon implements Parcelable {
     private String name;
     private String color;
     private int attack;
@@ -79,5 +82,42 @@ public class Lutemon {
                 ", experience=" + experience +
                 ", health=" + health +
                 '}';
+    }
+    protected Lutemon(Parcel in) {
+        name = in.readString();
+        color = in.readString();
+        attack = in.readInt();
+        defense = in.readInt();
+        experience = in.readInt();
+        health = in.readInt();
+        picURL = in.readString();
+    }
+
+    public static final Parcelable.Creator<Lutemon> CREATOR = new Parcelable.Creator<Lutemon>() {
+        @Override
+        public Lutemon createFromParcel(Parcel in) {
+            return new Lutemon(in);
+        }
+
+        @Override
+        public Lutemon[] newArray(int size) {
+            return new Lutemon[size];
+        }
+    };
+
+    //@Override
+    public int describeContents() {
+        return 0;
+    }
+
+    //@Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(color);
+        dest.writeInt(attack);
+        dest.writeInt(defense);
+        dest.writeInt(experience);
+        dest.writeInt(health);
+        dest.writeString(picURL);
     }
 }

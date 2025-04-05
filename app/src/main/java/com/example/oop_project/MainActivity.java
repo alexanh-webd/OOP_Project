@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        recyclerInventory = findViewById(R.id.recycler_inventory);
+        recyclerInventory = findViewById(R.id.recycler_training);
         recyclerInventory.setLayoutManager(new LinearLayoutManager(this));
         tvEmptyView = findViewById(R.id.tv_empty_view);
         // Load data from the datacontainer
@@ -68,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, cr_new_ltmActivity.class);
             startActivity(intent);
         });
+        Button btnMoveTotraining = findViewById(R.id.btn_MoveToTraining);
+        btnMoveTotraining.setOnClickListener(v->{
+            List<Lutemon> selected = adapter.getSelectedLutemons();
+            if (selected.size() == 2) {
+                Intent intent1 = new Intent(this, Training_lutemon.class);
+                intent1.putParcelableArrayListExtra("selected", new ArrayList<>(selected));
+                startActivity(intent1);
+            }
+        });
     }
     private void updateAdapterLutemon(List<Lutemon> lutemonList) {
         adapter.updateLutemon(lutemonList);
@@ -85,5 +94,10 @@ public class MainActivity extends AppCompatActivity {
         // Get fresh data from DataProvider
         List<Lutemon> currentData = DataProvider.getInstance().getLutemonData();
         updateAdapterLutemon(currentData);
+    }
+    public void onItemSelected(List<Lutemon> selected) {
+        // Update UI based on selection count
+        Button btnStart = findViewById(R.id.btn_MoveToTraining);
+        btnStart.setEnabled(selected.size() == 2);
     }
 }
