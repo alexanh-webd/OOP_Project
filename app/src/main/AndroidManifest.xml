@@ -15,6 +15,9 @@
         android:theme="@style/Theme.OOP_Project"
         tools:targetApi="31">
         <activity
+            android:name=".Arena"
+            android:exported="false" />
+        <activity
             android:name=".Training_lutemon"
             android:exported="false" />
         <activity

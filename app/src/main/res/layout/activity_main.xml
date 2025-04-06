@@ -62,7 +62,7 @@
                     android:paddingVertical="4dp">
 
                     <Button
-                        android:id="@+id/btn_viewHome"
+                        android:id="@+id/btn_arenaToHome"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 android:weightSum="2">
 
                 <Button
-                    android:id="@+id/btn_training"
+                    android:id="@+id/btn_battle"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                     android:text="For-Each" />
 
                 <Button
-                    android:id="@+id/btn_custom_iterator"
+                    android:id="@+id/btn_nextAttack"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_training"
+        android:id="@+id/recycler_main"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

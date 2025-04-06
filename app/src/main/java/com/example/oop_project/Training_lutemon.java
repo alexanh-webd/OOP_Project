@@ -1,8 +1,10 @@
 package com.example.oop_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +55,7 @@ public class Training_lutemon extends AppCompatActivity {
         setupRecyclerView();
         setupButtonListeners();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.training_main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -64,10 +66,16 @@ public class Training_lutemon extends AppCompatActivity {
         recyclerTraining.setAdapter(adapter);
     }
     private void setupButtonListeners() {
-        Button btnTrain = findViewById(R.id.btn_training);
+        Button btnTrain = findViewById(R.id.btn_battle);
         btnTrain.setOnClickListener(v->{
             recyclerTraining.setAdapter(adapter);
             refreshData();
+            Toast.makeText(Training_lutemon.this,"Training in progress", Toast.LENGTH_SHORT).show();
+        });
+        Button btnViewHome = findViewById(R.id.btn_arenaToHome);
+        btnViewHome.setOnClickListener(v->{
+            Intent intent2 = new Intent(Training_lutemon.this, MainActivity.class);
+            startActivity(intent2);
         });
     }
     private void updateAdapterLutemon(List<Lutemon> lutemonList) {

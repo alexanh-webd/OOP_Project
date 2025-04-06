@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        recyclerInventory = findViewById(R.id.recycler_training);
+        recyclerInventory = findViewById(R.id.recycler_main);
         recyclerInventory.setLayoutManager(new LinearLayoutManager(this));
         tvEmptyView = findViewById(R.id.tv_empty_view);
         // Load data from the datacontainer
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerInventory.setAdapter(adapter);
     }
     private void setupButtonListeners() {
-        Button btnViewHome = findViewById(R.id.btn_viewHome);
+        Button btnViewHome = findViewById(R.id.btn_arenaToHome);
         btnViewHome.setOnClickListener(v -> {
             recyclerInventory.setAdapter(adapter);
             refreshData();
@@ -71,10 +71,19 @@ public class MainActivity extends AppCompatActivity {
         Button btnMoveTotraining = findViewById(R.id.btn_MoveToTraining);
         btnMoveTotraining.setOnClickListener(v->{
             List<Lutemon> selected = adapter.getSelectedLutemons();
-            if (selected.size() == 2) {
+            if (selected.size() == 1) {
                 Intent intent1 = new Intent(this, Training_lutemon.class);
                 intent1.putParcelableArrayListExtra("selected", new ArrayList<>(selected));
                 startActivity(intent1);
+            }
+        });
+        Button btnMovetoBattle = findViewById(R.id.btn_moveToBattle);
+        btnMovetoBattle.setOnClickListener(v->{
+            List<Lutemon> selected = adapter.getSelectedLutemons();
+            if (selected.size() == 2) {
+                Intent intent2 = new Intent(this, Arena.class);
+                intent2.putParcelableArrayListExtra("selected", new ArrayList<>(selected));
+                startActivity(intent2);
             }
         });
     }

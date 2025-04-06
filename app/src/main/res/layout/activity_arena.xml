@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/training_main"
-    tools:context=".Training_lutemon">
+    android:id="@+id/main"
+    tools:context=".Arena">
 
     <TextView
         android:id="@+id/tv_title"
@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:background="#218E83"
         android:paddingVertical="8dp"
-        android:text="TRAINING"
+        android:text="BATTLE"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
         android:textSize="24sp"
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    android:text="Training" />
+                    android:text="battle" />
 
                 <Button
                     android:id="@+id/btn_nextAttack"
@@ -159,13 +159,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Custom Iterator" />
+                    android:text="Next Attack" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_training"
+        android:id="@+id/recycler_arena"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
