@@ -20,6 +20,7 @@ public class Lutemon implements Parcelable {
         this.experience = experience;
         this.health = health;
         this.picURL = picURL;
+
     }
     public String getPicURL() {
         return this.picURL;

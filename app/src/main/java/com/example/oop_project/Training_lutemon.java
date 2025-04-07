@@ -96,10 +96,10 @@ public class Training_lutemon extends AppCompatActivity {
         List<Lutemon> currentData = getIntent().getParcelableArrayListExtra("selected");
         List<Lutemon> updatedData = new ArrayList<>();
         for (Lutemon currentltm : currentData) {
-            currentltm.setAttack(Integer.parseInt(currentltm.getAttack()) + 2);
-            currentltm.setDefense(Integer.parseInt(currentltm.getDefense()) + 3);
+            currentltm.setAttack(Integer.parseInt(currentltm.getAttack()) + 1);
+            currentltm.setDefense(Integer.parseInt(currentltm.getDefense()) + 1);
             currentltm.setExperience(Integer.parseInt(currentltm.getExperience()) + 1);
-            currentltm.setHealth(Integer.parseInt(currentltm.getExperience()) + 4);
+            currentltm.setHealth(Integer.parseInt(currentltm.getHealth()) + 1);
             updatedData.add(currentltm);
         }
         for (Lutemon updateddataLTM : lutemonList) {

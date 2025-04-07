@@ -164,6 +164,7 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_arena"
         android:layout_width="0dp"
@@ -188,5 +189,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_iterator_demo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
